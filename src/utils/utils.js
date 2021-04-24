@@ -16,3 +16,28 @@ export const openMediaDevices = async (constraints) => {
   return await navigator.mediaDevices.getUserMedia(constraints);
 };
 
+/**
+ * LOCAL PLAYBACK
+ *
+ *
+ */
+export async function playVideoFromCamera() {
+  try {
+    const constraints = { video: true, audio: true };
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    const videoElement = document.querySelector("video#localVideo");
+    videoElement.srcObject = stream;
+
+    return true;
+  } catch (error) {
+    console.error("Error opening video camera.", error);
+    return false;
+  }
+}
+export async function closeCamera() {
+  const constraints = { video: true, audio: true };
+  const stream = await navigator.mediaDevices.getUserMedia(constraints);
+  stream.getTracks().forEach(function (track) {
+    track.stop();
+  });
+}

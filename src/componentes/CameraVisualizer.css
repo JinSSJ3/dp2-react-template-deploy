@@ -1,0 +1,13 @@
+#localVideo {
+    border: 1px solid white;
+   
+    background-color: #000000;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 0px 4px #ffffff; /* FF3.5+ */
+    -webkit-box-shadow: 5px 44px 28px #333; /* Saf3.0+, Chrome */
+    box-shadow: 0px 0px 4px #ffffff; /* Opera 10.5, IE 9.0 */
+  
+    -moz-transform: translate(0, 10px);  /* FF3.5+ */
+    -o-transform: translate(0, 10px);  /* Opera 10.5 */
+    -webkit-transform: translate(0, 10px);  /* Saf3.1+, Chrome */
+  }

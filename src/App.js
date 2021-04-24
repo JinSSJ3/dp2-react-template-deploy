@@ -1,51 +1,51 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect } from "react";
-import { getConnectedDevices, openMediaDevices } from "./utils/utils";
-
+import {  useState } from "react";
+import {
+  closeCamera,
+  getConnectedDevices,
+  openMediaDevices,
+  playVideoFromCamera,
+} from "./utils/utils";
+import CameraVisualizer from "./componentes/CameraVisualizer";
 function App() {
-  useEffect(async () => {
-    try {
-      //permisos de uso
-      const stream = await openMediaDevices({ video: true, audio: true });
-      console.log("Got MediaStream:", stream);
-
-      //lista de perifiericos
-      const videoCameras = await getConnectedDevices("videoinput");
-      const micrphones = await getConnectedDevices("audioinput");
-      console.log("Cameras found:", videoCameras);
-      
-      updateCameraList(videoCameras)
-      console.log("micrphones found:", micrphones);
-
-      //escuchar cambios, listeners
-    } catch (error) {
-      console.error("Error accessing media devices.", error);
-    }
-    navigator.mediaDevices.addEventListener("devicechange", (event) => {
-      const newCameraList = getConnectedDevices("audio");
-      updateCameraList(newCameraList);
-    });
-  });
+  const [visible, setVisible] = useState(false);
   // Updates the select element with the provided set of cameras
-  function updateCameraList(cameras) {
-    const listElement = document.querySelector("select#availableCameras");
-    console.log("select",listElement);
-    listElement.innerHTML = "";
-    cameras.map((camera) => {
-        const cameraOption = document.createElement("option");
-        cameraOption.label = camera.label;
-        cameraOption.value = camera.deviceId;
-        listElement.appendChild(cameraOption);
-      })
-      //.forEach((cameraOption) => listElement.add(cameraOption));
-      //listElement.appendChild();
-  }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-around",
+          }}
+        >
+          <button
+            className="button primary"
+            onClick={() => {
+              setVisible(playVideoFromCamera());
+            }}
+          >
+            Iniciar video
+          </button>
+          <button
+            className="button secondary"
+            onClick={() => {
+              const videoElement = document.querySelector("video#localVideo");
+              videoElement.srcObject = null;
+              setVisible(false);
+              window.location.reload();
+            }}
+          >
+            Cerrar cámara
+          </button>
+        </div>
+
+        <CameraVisualizer visible={visible} />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -57,7 +57,7 @@ function App() {
         >
           Learn React
         </a>
-        <select id="availableCameras"></select>
+        {/*  <select id="availableCameras"></select> */}
       </header>
     </div>
   );
