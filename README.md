@@ -1,8 +1,6 @@
 <h1 align="center"> DP2 react dummy deploy</h1>
 
-
 This project has the purpose to show how to deploy a reac app into a AWS S3 bucket.
-
 
 ## Run It
 
@@ -28,10 +26,14 @@ Now got to [http://localhost:3000/](http://localhost:3000/)
 
 ---
 
+<p align="center">
+ <img align="center" width="100%" src="" alt="img">
+</p>
+---
+
 #### Deploy to _AWS S3 bucket_:
 
 - Deploys the app to an aws S3 bucket.
-
 
 1. Make the build folder, wich will contain all required files for our app.
 
@@ -39,50 +41,42 @@ Now got to [http://localhost:3000/](http://localhost:3000/)
 npm run build
 ```
 
+<p align="center">
+ <img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975369-e0482a00-a529-11eb-8ef5-735132a49060.png" alt="img">
+</p>
+
 2. After the execution of that command, you will be able to see a new folder: "./build".
 3. Log in into your aws account and create an S3 bucket with all read permissions enabled.
-4. In the created bucket "properties" switch to "enable" the option to host static web sites.
+4. In the created bucket, in the "properties" option switch to "enable" the option to host static web sites.
 
-6. Drag all the content of the "build" folder and drag them into the S3 bucket panel to satrt the load.
-7. Select all files to load.
-8. Allow public read to everybody.
-9. Start the files load.
-10. Once all the files have been loaded correctly, in your browser go to the corresponding URL to check the app runnig.
-   - For example purposes an already deployed app can be accesed here:
-     [http://commit-history-ftf.s3-website-us-east-1.amazonaws.com/](http://commit-history-ftf.s3-website-us-east-1.amazonaws.com/).
+<p align="center">
+ <img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975429-5187dd00-a52a-11eb-94b9-d1e5484cf4a4.png" alt="img">
+</p>
+<p align="center">
+ <img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975457-7e3bf480-a52a-11eb-8c74-58bdcaa63465.png" alt="img">
+</p>
 
-## Commit pattern
+6. Drag all the content of the "build" folder and drag them into the S3 bucket panel to satart to load them.
 
-In order to make it easy to review the previous commits and understand the "what"s and "why"s behind each change, the following commit pattern is used:
+<p align="center">
+ <img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975524-29e54480-a52b-11eb-8cc6-af36cc8288f9.png" alt="img">
+</p>
+<p align="center">
+ <img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975532-38cbf700-a52b-11eb-8814-41b5c41efe46.png" alt="img">
+</p>
 
-- To make descriptive commits the command`git commit -v` is used. Otherwhise,`git commit -m "<message>"` command can be used when the commit message is not long enought to give it a body.
+8. Select all files to load.
+9. Allow public read to everybody.
 
-````
-<type>: <subject>
-<BLANK_LINE>
-<body> (optional)
-````
+<p align="center">
+<img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975631-f35bf980-a52b-11eb-812f-d5193b8521ce.png" alt="img">
+</p>
+<p align="center">
+<img align="center" width="100%" src="https://user-images.githubusercontent.com/43678736/115975644-0a9ae700-a52c-11eb-8350-0ad0b1cb6fd8.png" alt="img">
+</p>
 
-The definition for each commit section is as follows:
-`<type>`: A short label of the type of change.
+12. Once all the files have been loaded correctly, in your browser go to the corresponding URL to check the app runnig.
 
-- It can be any of the following:
-  + FEAT: A new feature
-  + FIX: Bug fix
-  + DOCS: Documentation changes
-  + STYLE: Formatting, missing spaces, etc
-  + REFACTOR: Code that it's neither a feat nor a fix
-
-`<subject>`: It is a short description of the commit
-
-- In general, no more than 80 characters
-- Written in present tense
-- Starts with capital letter
-
-`<body>`: The long description of the commit
-
-- Explains why the commit is needed
-- Briefly explains what the commit does
-- Talks about the related test cases and docs
-- In general, no more than 80 characters per line
+- For example purposes an already deployed app can be accesed here:
+  [http://dp2-test-deploy.s3-website-us-east-1.amazonaws.com/](http://dp2-test-deploy.s3-website-us-east-1.amazonaws.com/).
 

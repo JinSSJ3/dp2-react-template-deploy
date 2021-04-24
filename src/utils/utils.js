@@ -4,7 +4,7 @@
  * @returns la lista de dispositivos multiedia de un determinado tipo
  */
 export async function getConnectedDevices(type) {
-  const devices = await navigator.mediaDevices.enumerateDevices();
+  const devices = await window.navigator.mediaDevices.enumerateDevices();
   return devices.filter((device) => device.kind === type);
 }
 
@@ -13,7 +13,7 @@ export async function getConnectedDevices(type) {
  * @returns los dispositivos que se logró tener acceso
  */
 export const openMediaDevices = async (constraints) => {
-  return await navigator.mediaDevices.getUserMedia(constraints);
+  return await window.navigator.mediaDevices.getUserMedia(constraints);
 };
 
 /**
@@ -24,7 +24,7 @@ export const openMediaDevices = async (constraints) => {
 export async function playVideoFromCamera() {
   try {
     const constraints = { video: true, audio: true };
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    const stream = await window.navigator.mediaDevices.getUserMedia(constraints);
     const videoElement = document.querySelector("video#localVideo");
     videoElement.srcObject = stream;
 
@@ -36,7 +36,7 @@ export async function playVideoFromCamera() {
 }
 export async function closeCamera() {
   const constraints = { video: true, audio: true };
-  const stream = await navigator.mediaDevices.getUserMedia(constraints);
+  const stream = await window.navigator.mediaDevices.getUserMedia(constraints);
   stream.getTracks().forEach(function (track) {
     track.stop();
   });

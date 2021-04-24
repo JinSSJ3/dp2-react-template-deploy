@@ -2,9 +2,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import {  useState } from "react";
 import {
-  closeCamera,
-  getConnectedDevices,
-  openMediaDevices,
   playVideoFromCamera,
 } from "./utils/utils";
 import CameraVisualizer from "./componentes/CameraVisualizer";

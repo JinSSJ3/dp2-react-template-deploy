@@ -39,8 +39,7 @@
 }
 
 .button {
-  background-color: #4CAF50;
-  /* Green */
+  border-radius: 10px;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -53,6 +52,8 @@
 }
 
 .primary {
+ 
+  
   background-color: #071e25;
   color: #ffffff;
   border: 2px solid #071e25;
