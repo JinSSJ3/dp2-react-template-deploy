@@ -24,12 +24,6 @@ npm start
 
 Now got to [http://localhost:3000/](http://localhost:3000/)
 
----
-
-<p align="center">
- <img align="center" width="100%" src="" alt="img">
-</p>
----
 
 #### Deploy to _AWS S3 bucket_:
 
