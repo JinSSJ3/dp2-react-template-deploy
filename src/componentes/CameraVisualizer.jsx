@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./CameraVisualizer.css";
+
 const CameraVisualizer = (props) => {
-  const { visible } = props;
-  if (visible) {
+  if (props.visibleXXX) {
     return (
       <div>
         <video
           id="localVideo"
           autoplay="autoplay"
-          
           controls="controls"
           tabindex="0"
         />
